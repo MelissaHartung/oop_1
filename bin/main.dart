@@ -33,19 +33,19 @@ Teilnehmer teilnehmer3 = Teilnehmer(
 // Triangle triangle5 = Triangle.inch(10, 20);
 // Triangle triangle6 = Triangle.feet(10, 20);
 
-TriangleGet triangle1 = TriangleGet(10, 440);
+TriangleGet triangle1 = TriangleGet(10,-200);
 
 
 
 
 
 void main (){
-  print(
-triangle1);
-triangle1.heightInCm = 200; 
-print(triangle1.heightInDm);
-triangle1.heightInInch = 300;
-  print(triangle1.heightInDm);
+//   print(
+// triangle1);
+// triangle1.heightInCm = -200; 
+print(triangle1.heightInDm);  // warum kann daraus trz eine minus zahl entstehen bzw dachte würde es nicht weil wir das mit setter abfangen ?
+// triangle1.heightInInch = 300;
+//   print(triangle1.heightInDm);
     // print(teilnehmer1);
     // print(teilnehmer2);
     // print(teilnehmer3);
