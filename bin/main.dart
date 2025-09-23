@@ -1,4 +1,5 @@
 import 'teilnehmer.dart';
+import 'triangle.dart';
 
 Teilnehmer teilnehmer1 = Teilnehmer(
   vorname: 'Melissa',
@@ -21,8 +22,24 @@ Teilnehmer teilnehmer3 = Teilnehmer(
   telefonnummer: 8374359025,
   notendurchschnitt: 1.3,
 );
-void main() {
-  print(teilnehmer1);
-  print(teilnehmer2);
-  print(teilnehmer3);
+
+
+Triangle triangle1 =Triangle(10, 20);
+Triangle triangle2 = Triangle.cm(10, 20);
+Triangle triangle3 = Triangle.dm(10, 20);
+Triangle triangle4 = Triangle.m(10, 20);
+Triangle triangle5 = Triangle.inch(10, 20);
+Triangle triangle6 = Triangle.feet(10, 20);
+
+void main (){
+
+    print(teilnehmer1);
+    print(teilnehmer2);
+    print(teilnehmer3);
+print(triangle1);
+print(triangle2);
+print(triangle3);
+print(triangle4);
+print(triangle5);
+print(triangle6);
 }
