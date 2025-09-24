@@ -1,26 +1,32 @@
-  enum MeasurementSytem {
-    mm,
-    cm,
-    dm,
-    m,
-    inch,
-    feet
-  }
+enum MeasurementSystem {
+  mm(1),
+  cm(10),
+  dm(100),
+  m(1000),
+  inch(25.4),
+  feet(304.8);
+
+  final double toMmFactor;
+  const MeasurementSystem(this.toMmFactor);
+}
 
 class Triangle {
   double widthInMm;
   double heightInMm;
-  MeasurementSytem measurementSytem;
+  MeasurementSystem measurementSystem;
 
-  Triangle(this.widthInMm, this.heightInMm): measurementSytem = MeasurementSytem.mm;
+  Triangle(this.widthInMm, this.heightInMm)
+    : measurementSystem = MeasurementSystem.mm;
 
-Triangle.cm (double widthInCm, double heightInCm): heightInMm = heightInCm * 10, widthInMm = widthInCm * 10, measurementSytem = MeasurementSytem.cm;
-Triangle.dm (double widthInDm, double heightInDm): heightInMm = heightInDm * 100, widthInMm = widthInDm * 100, measurementSytem = MeasurementSytem.dm;
-Triangle.m (double widthInM, double heightInM): heightInMm = heightInM * 1000, widthInMm = widthInM * 1000, measurementSytem = MeasurementSytem.m;
-Triangle.inch (double widthInInch, double heightInInch): heightInMm = heightInInch * 25.4, widthInMm = widthInInch * 25.4, measurementSytem = MeasurementSytem.inch;
-Triangle.feet (double widthInFeet, double heightInFeet): heightInMm = heightInFeet * 304.8, widthInMm = widthInFeet * 304.8, measurementSytem = MeasurementSytem.feet;
+  void convertTo(MeasurementSystem to) {
+    if (to == measurementSystem) return;
+    widthInMm = widthInMm * measurementSystem.toMmFactor / to.toMmFactor;
+    heightInMm = heightInMm * measurementSystem.toMmFactor / to.toMmFactor;
+    measurementSystem = to;
+  }
 
-@override
-String toString() { return 'widthInMm: $widthInMm, heightInMm: $heightInMm, measurementSytem: $measurementSytem'; }
+  @override
+  String toString() {
+    return 'widthInMm: $widthInMm, heightInMm: $heightInMm, measurementSytem: $measurementSystem';
+  }
 }
-
