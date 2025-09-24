@@ -1,6 +1,13 @@
 import 'dart:math';
 
-enum Geschlecht { m, w, d }
+enum Geschlecht {
+  m('männlich'),
+  w('weiblich'),
+  d('divers');
+
+  final String bezeichnung;
+  const Geschlecht(this.bezeichnung);
+}
 
 class Cdemy {
   List<Kurs> kurse = [];
