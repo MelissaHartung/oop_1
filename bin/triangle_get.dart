@@ -1,6 +1,8 @@
 enum MeasurementSytem { mm, cm, dm, m, inch, feet }
 
 class TriangleGet {
+  double get height => getHeight(measurementSytem);
+  double get width => getWidth(measurementSytem);
   double _widthInMm;
   double _heightInMm;
   MeasurementSytem measurementSytem;
@@ -8,75 +10,48 @@ class TriangleGet {
   TriangleGet(this._widthInMm, this._heightInMm)
     : measurementSytem = MeasurementSytem.mm;
 
-  double get widthInCm => _widthInMm / 10;
-  double get heightInCm => _heightInMm / 10;
-  double get widthInDm => _widthInMm / 100;
-  double get heightInDm => _heightInMm / 100;
-  double get widthInM => _widthInMm / 1000;
-  double get heightInM => _heightInMm / 1000;
-  double get widthInInch => _widthInMm / 25.4;
-  double get heightInInch => _heightInMm / 25.4;
-  double get widthInFeet => _widthInMm / 304.8;
-  double get heightInFeet => _heightInMm / 304.8;
-
-  set widthInCm(double widht) {
-    if (widht > 0) {
-      _widthInMm = widht * 10;
-    }
+  getHeight(MeasurementSytem ms) {
+    if (ms == MeasurementSytem.mm) return _heightInMm;
+    if (ms == MeasurementSytem.cm) return _heightInMm / 10;
+    if (ms == MeasurementSytem.dm) return _heightInMm / 100;
+    if (ms == MeasurementSytem.m) return _heightInMm / 1000;
+    if (ms == MeasurementSytem.inch) return _heightInMm / 25.4;
+    if (ms == MeasurementSytem.feet) return _heightInMm / 304.8;
+    return null;
   }
 
-  set heightInCm(double height) {
-    if (height > 0) {
-      _heightInMm = height * 10;
-    }
+  getWidth(MeasurementSytem ms) {
+    if (ms == MeasurementSytem.mm) return _widthInMm;
+    if (ms == MeasurementSytem.cm) return _widthInMm / 10;
+    if (ms == MeasurementSytem.dm) return _widthInMm / 100;
+    if (ms == MeasurementSytem.m) return _widthInMm / 1000;
+    if (ms == MeasurementSytem.inch) return _widthInMm / 25.4;
+    if (ms == MeasurementSytem.feet) return _widthInMm / 304.8;
+    return null;
   }
 
-  set widthInDm(double widht) {
-    if (widht > 0) {
-      _widthInMm = widht * 100;
-    }
+  setHeight(MeasurementSytem ms, double height) {
+    if (height <= 0) return;
+    if (ms == MeasurementSytem.mm) _heightInMm = height;
+    if (ms == MeasurementSytem.cm) _heightInMm = height * 10;
+    if (ms == MeasurementSytem.dm) _heightInMm = height * 100;
+    if (ms == MeasurementSytem.m) _heightInMm = height * 1000;
+    if (ms == MeasurementSytem.inch) _heightInMm = height * 25.4;
+    if (ms == MeasurementSytem.feet) _heightInMm = height * 304.8;
   }
 
-  set heightInDm(double height) {
-    if (height > 0) {
-      _heightInMm = height * 100;
-    }
+  setWidth(MeasurementSytem ms, double width) {
+    if (width <= 0) return;
+    if (ms == MeasurementSytem.mm) _widthInMm = width;
+    if (ms == MeasurementSytem.cm) _widthInMm = width * 10;
+    if (ms == MeasurementSytem.dm) _widthInMm = width * 100;
+    if (ms == MeasurementSytem.m) _widthInMm = width * 1000;
+    if (ms == MeasurementSytem.inch) _widthInMm = width * 25.4;
+    if (ms == MeasurementSytem.feet) _widthInMm = width * 304.8;
   }
 
-  set widthInM(double widht) {
-    if (widht > 0) {
-      _widthInMm = widht * 1000;
-    }
-  }
-
-  set heightInM(double height) {
-    if (height > 0) {
-      _heightInMm = height * 1000;
-    }
-  }
-
-  set widthInInch(double widht) {
-    if (widht > 0) {
-      _widthInMm = widht * 25.4;
-    }
-  }
-
-  set heightInInch(double height) {
-    if (height > 0) {
-      _heightInMm = height * 25.4;
-    }
-  }
-
-  set widthInFeet(double widht) {
-    if (widht > 0) {
-      _widthInMm = widht * 304.8;
-    }
-  }
-
-  set heightInFeet(double height) {
-    if (height > 0) {
-      _heightInMm = height * 304.8;
-    }
+  areaGetter(TriangleGet triangle) {
+    return triangle._heightInMm * triangle._widthInMm;
   }
 
   @override

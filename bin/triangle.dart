@@ -29,4 +29,6 @@ class Triangle {
   String toString() {
     return 'widthInMm: $widthInMm, heightInMm: $heightInMm, measurementSytem: $measurementSystem';
   }
+
+  void areaGetter(Triangle triangle1) {}
 }

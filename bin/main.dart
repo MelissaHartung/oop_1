@@ -24,8 +24,8 @@ Teilnehmer teilnehmer3 = Teilnehmer(
   notendurchschnitt: 1.3,
 );
 
-Triangle triangle1 = Triangle(10, 20);
-// Triangle triangle2 = Triangle.cm(10, 20);
+TriangleGet triangle1 = TriangleGet(10, 20);
+// / Triangle triangle2 = Triangle.cm(10, 20);
 // Triangle triangle3 = Triangle.dm(10, 20);
 // Triangle triangle4 = Triangle.m(10, 20);
 // Triangle triangle5 = Triangle.inch(10, 20);
@@ -34,8 +34,12 @@ Triangle triangle1 = Triangle(10, 20);
 // TriangleGet triangle1 = TriangleGet(10,-200);
 
 void main() {
-  triangle1.convertTo(MeasurementSystem.inch);
+  triangle1.getHeight(MeasurementSytem.cm);
+
+  // print(triangle1.heightInMm * triangle1.widthInMm);
   print(triangle1);
+
+  // triangle1.convertTo(MeasurementSystem.cm);
   //   print(
   // triangle1);
   // triangle1.heightInCm = -200;
