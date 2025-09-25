@@ -1,14 +1,31 @@
-enum MeasurementSytem { mm, cm, dm, m, inch, feet }
+enum MeasurementSytem {
+  mm(1),
+  cm(10),
+  dm(100),
+  m(1000),
+  inch(25.4),
+  feet(304.8);
+
+  final double toMmFactor;
+  const MeasurementSytem(this.toMmFactor);
+}
 
 class TriangleGet {
-  double get height => getHeight(measurementSytem);
-  double get width => getWidth(measurementSytem);
+  // double get height => getHeight(measurementSytem);
+  // double get width => getWidth(measurementSytem);
   double _widthInMm;
   double _heightInMm;
   MeasurementSytem measurementSytem;
 
   TriangleGet(this._widthInMm, this._heightInMm)
     : measurementSytem = MeasurementSytem.mm;
+
+  convertTo(MeasurementSytem to) {
+    if (to == measurementSytem) return;
+    _widthInMm = _widthInMm * measurementSytem.toMmFactor / to.toMmFactor;
+    _heightInMm = _heightInMm * measurementSytem.toMmFactor / to.toMmFactor;
+    measurementSytem = to;
+  }
 
   getHeight(MeasurementSytem ms) {
     if (ms == MeasurementSytem.mm) return _heightInMm;
@@ -35,6 +52,7 @@ class TriangleGet {
     if (ms == MeasurementSytem.mm) _heightInMm = height;
     if (ms == MeasurementSytem.cm) _heightInMm = height * 10;
     if (ms == MeasurementSytem.dm) _heightInMm = height * 100;
+
     if (ms == MeasurementSytem.m) _heightInMm = height * 1000;
     if (ms == MeasurementSytem.inch) _heightInMm = height * 25.4;
     if (ms == MeasurementSytem.feet) _heightInMm = height * 304.8;
@@ -51,7 +69,7 @@ class TriangleGet {
   }
 
   areaGetter(TriangleGet triangle) {
-    return triangle._heightInMm * triangle._widthInMm;
+    return triangle._widthInMm * triangle._heightInMm;
   }
 
   @override
