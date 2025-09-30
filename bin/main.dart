@@ -22,15 +22,15 @@ Teilnehmer teilnehmer3 = Teilnehmer(
   telefonnummer: 8374359025,
   notendurchschnitt: 1.3,
 );
-TriangleGet triangle1 = TriangleGet(30, 20);
+Triangle triangle1 = Triangle(30, 20);
 // TriangleGet triangle1 = TriangleGet(10,-200);
 
 void main() {
   // triangle1.convertTo(MeasurementSytem.cm);
   // triangle1.setHeight(MeasurementSytem.m, 8);
 
-  triangle1.convertTo(MeasurementSytem.cm);
-  print(triangle1.getHeight(MeasurementSytem.cm));
+  triangle1.convertTo(MeasurementSystem.cm);
+  print(triangle1.getHeight(MeasurementSystem.cm));
 
   // print(triangle1.areaGetter(triangle1));
 
