@@ -1,4 +1,4 @@
-import 'cdemy.dart';
+import 'package:oop_1/aggregation_cdemy.dart';
 
 void main() {
   Teilnehmer teilnehmer1 = Teilnehmer('Melissa', 'Hartung', Geschlecht.w);

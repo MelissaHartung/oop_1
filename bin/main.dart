@@ -1,5 +1,5 @@
-import 'teilnehmer.dart';
-import 'triangle_get.dart';
+import 'package:oop_1/teilnehmer.dart';
+import 'package:oop_1/triangle.dart';
 
 Teilnehmer teilnehmer1 = Teilnehmer(
   vorname: 'Melissa',
